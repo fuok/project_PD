@@ -22,10 +22,9 @@ public class BallShooter : MonoBehaviour
 			int forceX = UnityEngine.Random.Range (-0, -200);
 			int forceY = UnityEngine.Random.Range (50, 100);
 
-			GameObject ball = (GameObject)Instantiate (_pinball);
-			ball.transform.localPosition = this.transform.localPosition;
+			GameObject ball = (GameObject)Instantiate (_pinball, transform.position, Quaternion.identity);
 //			ball.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (forceX, forceY));
-			ball.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (mDirection.x, mDirection.y) * 50f);
+			ball.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (mDirection.x, mDirection.y) * 100f * Random.Range (0.9f, 1.1f));
 			yield return new WaitForSeconds (0.5f);
 		}
 	}
