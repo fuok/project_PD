@@ -32,29 +32,24 @@ public class BallLogic : MonoBehaviour
 	void OnCollisionEnter2D (Collision2D col)
 	{
 		//Debug.Log(other.transform.tag);
-//		if (col.transform.tag == "Floor") {
+		if (col.transform.tag == "Floor") {
 //			int box = 0;
-//			switch (col.transform.name) {
-//			case "Jackpot":
-//				box = 5;
-//				break;
-//			case "Gold":
-//				box = 4;
-//				break;
-//			case "Silver":
-//				box = 3;
-//				break;
-//			case "Bronze":
-//				box = 2;
-//				break;
-//			case "Lose":
-//				box = 1;
-//				break;
-//			}
-//			Destroy (gameObject);
-//
+			switch (col.transform.parent.name) {
+			case "Prize Gate 1":
+				print ("11111");
+				Constants.SCORE_1++;
+				GameManager.Instance.txtScore1.text = Constants.SCORE_1.ToString ();
+				break;
+			case "Prize Gate 2":
+				print ("22222");
+				Constants.SCORE_2++;
+				GameManager.Instance.txtScore2.text = Constants.SCORE_2.ToString ();
+				break;
+			}
+			Destroy (gameObject);
+
 //			Pinball_StartBtn startbtn = (Pinball_StartBtn)FindObjectOfType (typeof(Pinball_StartBtn));
 //			startbtn.SendMessage ("GoalInBall", box);
-//		}
+		}
 	}
 }
