@@ -6,6 +6,7 @@ public class BallShooter : MonoBehaviour
 
 	public GameObject _pinball;
 	public Vector3 mDirection;
+	public float mPower = 120f;
 	// Use this for initialization
 	void Start ()
 	{
@@ -24,7 +25,7 @@ public class BallShooter : MonoBehaviour
 
 			GameObject ball = (GameObject)Instantiate (_pinball, transform.position, Quaternion.identity);
 //			ball.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (forceX, forceY));
-			ball.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (mDirection.x, mDirection.y) * 100f * Random.Range (0.9f, 1.1f));
+			ball.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (mDirection.x, mDirection.y) * mPower * Random.Range (0.9f, 1.1f));
 			yield return new WaitForSeconds (0.5f);
 		}
 	}
